@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Resume </h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Projects/index.html">Projects</a></li>
+            <li><a href="Contact/index.html">Contact</a></li>
+            <li><a href="resume/index.html">Resume</a></li>
+        </ul>
+    </nav>
+
+        <h2>Rohan Raval</h2>
+        <section id="Education">
+            <h3>Education</h3>
+            <article> 
+                <b>University of California - San Diego (2023-2026)</b>
+                <p>BS in Data Science</p>
+                    <li>Courses: Machine Learning; Data Structures & Algorithms; Probability & Statistics; Applied Data Science; Graph Theory</li>
+                    <li>Activities: SFIC Quantitative Tech Team, UCSD Speech & Debate Team, Halicioglu Data Science Institute Student Council</li>
+            </article>
+        </section>
+
+        <section id="Experience">
+            <h3>Experience</h3>
+            <article>
+                <h4>GetOnData Solutions</h4>
+                <ul>
+                    <li>Developed ARIMA & STL model for generating sales forecasts based on 24 months of sales & supply chain parameters</li>
+                    <li>Used Best Fit Analysis to determine which statistical model to use based on MAE & RMSE on the input data</li>
+                    <li>Utilised REST API  to facilitate data exchange between Third-Party systems and the forecasting model responses.</li>
+                </ul>
+            </article>
+            <article>
+                <h4>Tntra.io</h4>
+                <ul>
+                    <li>Used pdfminer & itertools to extract text, font size, and bold features from PDFs and store that in pandas DataFrame.</li>
+                    <li>Built BERT RNN-LSTM using TensorFlow to classify PDF text at 28,000 words per 0.005s based on tokenized text features</li>
+                    <li>Integrated the processed topic-content chunks with GenAI API Gemini  to generate structured HTML pages for the LMS.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="Projects">
+            <h3>Projects</h3>
+            <article>
+                <h4><a href="https://devpost.com/software/marketpulse">MarketPulse</a> - HackPrinceton Winner: 2nd Best Financial Hack (Capital One), Best Use of .tech</h4>
+                <ul>
+                    <li>Created a web scraper to pull financial news and stock data, enabling real-time analysis of macroeconomic events.</li>
+                    <li>Engineered a custom NER model using spaCy to detect relevant stocks and sectors from news articles.</li>
+                    <li>Used sentiment scoring + contextual analysis to identify affected stocks and predict movement (MSE: 0.0006).</li>
+                    <li>Implemented RAG on SEC 10-K filings for real-time Q&A based on company fundamentals and financial reports.</li>
+                    <li>Deployed the system with a Flask backend, React frontend, LangChain, and Gemini API.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h4>Jane Street Estimathon 1st Place Winner — Quant Competition Winner</h4>
+                <ul>
+                    <li>Achieved the 1st place with a score 944 in Jane Street Estimathon at UCSD in 2025</li>
+                </ul>
+            </article>
+
+            <article>
+                <h4><a href="https://earthwolves.github.io/power-outage-cause-prediction/">Power Outage Analysis</a></h4>
+                <ul>
+                    <li>Analyzed U.S. power outage data (2000-2016) & performed hypothesis testing, showing insights into underlying differences in power outage management across all 50 states and regions in the US.</li>
+                    <li>Created data visualizations (sunbursts, choropleth, etc.) to highlight trends and regional differences in power outages.</li>
+                    <li>Developed a RandomForest Classifier using Scikit-Learn, achieving 90% accuracy in predicting outage causes through robust feature engineering and hyperparameter tuning using GridSearchCV.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h4>MiniGit Version Control System</h4>
+                <ul>
+                    <li>Implemented core Git functions such as git add, commit, branch, and log using Java. </li>
+                    <li>Serialized commit data using Java Utils and tracked changes with SHA-1 hashing.</li>
+                    <li>Implemented low-level file manipulation using Java File I/O for custom file management in the directories.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h4>Spotify Recommender & Song Analyzer</h4>
+                <ul>
+                    <li>Utilized Pandas to retrieve and feature engineer Spotify songs’ discography, focusing on lyrics and audio features.</li>
+                    <li>Used Genius API to extract song lyrics and Spotify API to gather audio features such as valence, and danceability.</li>
+                    <li>Processed lyrical data using TF-IDF from scikit-learn for lyric analysis and thematic identification.</li>
+                    <li>Used Euclidean distance between multiple song features to analyze and recommend the next song from 1Billion songs.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="Skills">
+            <h3>Skills</h3>
+            <ul>
+                <li><b>Languages:</b> Python, Java, R, SQL, MATLAB, Flutter, Flask, HTML, CSS</li>
+                <li><b>Frameworks:</b> PowerBI,TensorFlow, PyTorch, Transformers, Sk-learn, BERT, Neural Networks(CNN RNN), API configuration</li>
+                <li><b>Libraries:</b> spaCy, NLTK , Selenium, BeautifulSoup, pdfminer, SciKit libraries, NetworkX, Keras, Pandas, Numpy, Plotly</li>
+                <li><b>Tools:</b> AWS, Git, MongoDB, LaTeX, Microsoft Excel, PowerPoint, Apache OpenOffice</li>
+            </ul>
+        </section>
+        
+
+</body>
+</html>
