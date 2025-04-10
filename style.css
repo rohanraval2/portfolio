@@ -1,38 +1,56 @@
-:root {
-  --color-accent: oklch(65% 50% 0);
-  accent-color: var(--color-accent);
-}
-
-body {
-  font: 100%/1.5 system-ui;
-  max-width: 1020ch;
-  margin-inline: max(1em, (100% - 100ch) / 2);
-}
-
-/* Navigation styles */
 nav {
   display: flex;
-  text-align: center;
-  padding: 0.5em;
-  margin-bottom: 2.5ch;
-  border-bottom: 1px solid oklch(80% 3% 200);
+  justify-content: space-around;
+  border-bottom: 1px solid #cbd5d1; /* light gray border */
+  font-family: system-ui, sans-serif;
 }
 
-/* Navigation links */
-nav a {
-  text-decoration: none;
-  color: inherit;
-  display: contents;
-  background-color: oklch(from var(--color-accent) 95% 5% h);
-}
-
-/* Navigation list and items */
 nav ul {
+  display: flex;
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
-nav ul li {
-  display: contents;
+nav li {
+  flex: 1;
+  text-align: center;
+}
+
+nav a {
+  display: inline-block;
+  padding: 1em;
+  text-decoration: none;
+  color: black;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+/* Active link style */
+nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  bottom: 0.3em;
+  height: 4px;
+  background-color: #a3b3b3; /* light blue-gray bar */
+  border-radius: 2px;
+}
+
+/* Hover effect */
+nav a:hover {
+  background-color: #fae6eb; /* soft pink background */
+}
+
+nav a:hover::after {
+  content: "";
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  bottom: 0.3em;
+  height: 4px;
+  background-color: #e04080; /* vibrant pink bar */
+  border-radius: 2px;
 }
