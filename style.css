@@ -3,4 +3,13 @@ body {
          and use the OS’s UI font as the website font
        */
     font: 100%/1.5 system-ui;
+    max-width: 1020ch;
+    margin-inline: max(1em, (100% - 100ch) / 2);
+
+    ul {
+      li {
+        display: contents;
+      }
+    }
+
   }
