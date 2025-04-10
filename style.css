@@ -6,6 +6,19 @@ body {
     max-width: 1020ch;
     margin-inline: max(1em, (100% - 100ch) / 2);
 
+    a.current {
+      display: contents;
+      flex: 10;
+    }
+
+    nav {
+      display: flex;
+      text-decoration: none;
+      color: inherit;
+      
+
+    }
+
     ul {
       li {
         display: contents;
