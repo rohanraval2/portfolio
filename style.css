@@ -3,7 +3,6 @@
   accent-color: var(--color-accent);
 }
 
-/* Base body styling */
 body {
   font: 100%/1.5 system-ui;
   max-width: 1020ch;
@@ -11,7 +10,6 @@ body {
   padding: 1em;
 }
 
-/* Navigation styles */
 nav {
   display: flex;
   justify-content: space-around;
@@ -68,14 +66,12 @@ nav a:hover::after {
   border-radius: 2px;
 }
 
-/* Form Typography */
 input,
 textarea,
 button {
   font: inherit;
 }
 
-/* Grid Contact Form Layout */
 form {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -99,7 +95,6 @@ form button {
   grid-column: 1 / -1;
 }
 
-/* Projects Grid Layout */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
@@ -122,7 +117,6 @@ form button {
   margin: 0;
 }
 
-/* Heading Hierarchy */
 h1 {
   font-size: 400%;
   margin-bottom: 1rem;
