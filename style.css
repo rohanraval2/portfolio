@@ -132,3 +132,22 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
+
+.resume-page h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #111827;
+}
+
+.resume-page section {
+  margin-bottom: 2em;
+}
+
+.resume-page article {
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5em;
+}
