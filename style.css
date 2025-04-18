@@ -215,7 +215,7 @@ h1 {
 }
 
 article {
-  background-color: color-mix(in oklch, canvas 90%, white);
+  background-color: color-mix(in oklch, canvas 10%, black);
   color: canvastext;
   border: 1px solid oklch(60% 0.05 200 / 40%);
   border-radius: 0.75rem;
