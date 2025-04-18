@@ -145,3 +145,36 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid #e5e7eb;
   border-radius: 0.5em;
 }
+
+html {
+  color-scheme: light dark;
+  background-color: canvas;
+  color: canvastext;
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.8rem;
+  font-family: inherit;
+}
+
+.color-scheme select {
+  font-family: inherit;
+}
+
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom-color: var(--border-color);
+}
+
+nav a:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+.projects article {
+  background-color: canvas;
+  border-color: oklch(60% 0.05 200 / 40%);
+}
+
