@@ -9,9 +9,9 @@ const BASE_PATH = (location.hostname === "localhost" || location.hostname === "1
 // Pages to appear in the nav
 let pages = [
   { url: "", title: "Home" },
-  { url: "projects/", title: "Projects" },
-  { url: "about/", title: "About" },
+  { url: "resume/", title: "Resume" }, 
   { url: "contact/", title: "Contact" },
+  { url: "projects/", title: "Projects" }, 
   { url: "https://github.com/rohanraval2", title: "GitHub" } // external
 ];
 
