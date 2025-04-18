@@ -146,12 +146,46 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 0.5em;
 }
 
+/* Global theme support */
 html {
   color-scheme: light dark;
   background-color: canvas;
   color: canvastext;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+}
+
+/* Nav links */
+nav a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+nav a.current {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+nav a:hover {
+  background-color: color-mix(in oklch, var(--color-accent, oklch(60% 10% 200)), canvas 85%);
+  border-radius: 0.25rem;
+}
+
+/* Dark mode switch */
 .color-scheme {
   position: absolute;
   top: 1rem;
@@ -164,17 +198,25 @@ html {
   font-family: inherit;
 }
 
-nav {
-  --border-color: oklch(50% 10% 200 / 40%);
-  border-bottom-color: var(--border-color);
+/* Resume title */
+h1, h2 {
+  margin: 2rem 1rem 1rem;
+  color: canvastext;
 }
 
-nav a:hover {
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+/* Resume section containers */
+.resume-section {
+  background-color: color-mix(in oklch, canvas 90%, white);
+  color: canvastext;
+  border: 1px solid oklch(60% 0.05 200 / 40%);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin: 1rem auto;
+  width: min(90%, 800px);
+  box-shadow: 0 0.5rem 1rem oklch(0% 0 0 / 0.05);
 }
 
-.projects article {
-  background-color: canvas;
-  border-color: oklch(60% 0.05 200 / 40%);
+/* Paragraph styling */
+p {
+  margin: 1rem;
 }
-
