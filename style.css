@@ -256,8 +256,24 @@ p {
   box-shadow: 0 8px 16px color-mix(in oklch, var(--color-accent), canvas 50%);
 }
 
+
+article, .projects article {
+  background-color: canvas;
+  color: canvastext;
+  padding: 2rem;
+  margin: 1.5rem auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px oklch(0% 0 0 / 10%);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+
+
 @media (prefers-color-scheme: dark) {
-  article {
+  article, .projects article {
     background-color: color-mix(in oklch, canvas 10%, black);
+    color: canvastext;
   }
 }
+
