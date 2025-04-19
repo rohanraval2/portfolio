@@ -257,7 +257,7 @@ p {
 }
 
 
-article, .projects article {
+.resume-page article, .projects article {
   background-color: canvas;
   color: canvastext;
   padding: 2rem;
@@ -271,7 +271,7 @@ article, .projects article {
 
 
 @media (prefers-color-scheme: dark) {
-  article, .projects article {
+.resume-page article, .projects article {
     background-color: color-mix(in oklch, canvas 10%, black);
     color: canvastext;
   }
