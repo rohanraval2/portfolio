@@ -140,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 .resume-page article {
   padding: 1em;
   margin-bottom: 1em;
-  background-color: #ffffff;
+  background-color: canvas;
   border: 1px solid #e5e7eb;
   border-radius: 0.5em;
 }
@@ -260,7 +260,6 @@ p {
 .resume-page article, .projects article {
   background-color: canvas;
   color: canvastext;
-  padding: 2rem;
   margin: 1.5rem auto;
   border-radius: 1rem;
   box-shadow: 0 0 15px oklch(0% 0 0 / 10%);
