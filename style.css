@@ -255,3 +255,9 @@ p {
 .card:hover {
   box-shadow: 0 8px 16px color-mix(in oklch, var(--color-accent), canvas 50%);
 }
+
+@media (prefers-color-scheme: dark) {
+  article {
+    background-color: color-mix(in oklch, canvas 10%, black);
+  }
+}
