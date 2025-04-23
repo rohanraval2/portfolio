@@ -271,7 +271,7 @@ p {
 
 @media (prefers-color-scheme: dark) {
 .resume-page article, .projects article {
-    background-color: color-mix(in oklch, canvas 10%, black);
+    background-color: canvas;
     color: canvastext;
   }
 }
