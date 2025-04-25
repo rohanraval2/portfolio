@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Workout Tracker",
+    "year": "2025",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "A real-time pose detection app that counts fitness exercises using OpenCV and MediaPipe."
+  },
+  {
+    "title": "MarketPulse",
+    "year": "2025",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Hackathon-winning stock sentiment tool powered by NLP and financial data."
+  },
+  {
+    "title": "Speech Coach",
+    "year": "2024",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "An automated coach that analyzes articulation and pacing for speech practice."
+  },
+  {
+    "title": "Recipe Recommender",
+    "year": "2024",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "A personalized recipe engine using cosine similarity and ingredient embeddings."
+  },
+  {
+    "title": "Portfolio Website",
+    "year": "2023",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "This very website. A clean, SvelteKit-based interactive showcase of my projects."
+  },
+  {
+    "title": "Data Engineering API",
+    "year": "2024",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Forecasts sales with ARIMA and STL models, integrated via REST API."
+  },
+  {
+    "title": "PDF Classifier",
+    "year": "2024",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Classifies educational PDFs using BERT+RNN based on font features and token sequences."
+  },
+  {
+    "title": "Language Learning App",
+    "year": "2023",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "A mobile app that teaches vocabulary using spaced repetition and voice input."
+  },
+  {
+    "title": "Immigrant Worker Report",
+    "year": "2025",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Empirical research on immigrant labor in the US, analyzing trends and stories."
+  },
+  {
+    "title": "Expense Splitter",
+    "year": "2023",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "A JS tool that calculates who owes whom in group expenses with a clean UI."
+  },
+  {
+    "title": "Pop Culture Matcher",
+    "year": "2025",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Matches real-time webcam faces with celebrity lookalikes using facial embeddings."
+  },
+  {
+    "title": "Dance Pose Analyzer",
+    "year": "2025",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Replicates MJ-style dancing using stick-figure guidance and pose comparison."
+  }
+]
