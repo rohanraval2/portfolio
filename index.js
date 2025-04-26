@@ -1,4 +1,4 @@
-import { fetchJSON, renderProjects, fetchGitHubData } from 'portfolio/global.js';
+import { fetchJSON, renderProjects, fetchGitHubData } from '/portfolio/global.js';
 
 const allProjects = await fetchJSON('portfolio/lib/projects.json');
 const latestProjects = allProjects.slice(0, 3);
