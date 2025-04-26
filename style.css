@@ -277,29 +277,39 @@ p {
 }
 
 #profile-stats {
-  margin-top: 1rem;
-  background: #ffe4ec;
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  padding: 2rem;
+  margin: 1rem 0;
+  background-color: #ffe4ec;
   border-radius: 1rem;
-  padding: 1.5rem 2rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  text-align: center;
-  font-family: sans-serif;
   box-shadow: 0 5px 20px -10px rgba(255, 100, 150, 0.5);
+  font-family: sans-serif;
+  text-align: center;
+  flex-wrap: wrap;
 }
 
-#profile-stats dt {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  color: #d6336c;
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+}
+
+.stat .label {
+  font-size: 0.9rem;
   font-weight: 600;
+  color: #d6336c;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
 }
 
-#profile-stats dd {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: black;
+.stat .value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #000;
 }
+
 
 
