@@ -1,10 +1,10 @@
-console.log("IT'S ALIVE!")
+console.log("IT'S ALIVE!");
 
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"                     
-  : "/portfolio/";     
+  : "/portfolio/";
 
 let pages = [
   { url: "", title: "Home" },
@@ -19,20 +19,12 @@ document.body.prepend(nav);
 
 for (let p of pages) {
   let url = p.url;
-
   url = !url.startsWith("http") ? BASE_PATH + url : url;
-
   let a = document.createElement("a");
   a.href = url;
   a.textContent = p.title;
-
-  a.classList.toggle(
-    "current",
-    a.host === location.host && a.pathname === location.pathname
-  );
-
+  a.classList.toggle("current", a.host === location.host && a.pathname === location.pathname);
   a.toggleAttribute("target", a.host !== location.host);
-
   nav.append(a);
 }
 
@@ -68,7 +60,7 @@ export async function fetchJSON(url) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+      throw new Error(`Failed to fetch: ${response.statusText}`);
     }
     const data = await response.json();
     return data;
@@ -84,7 +76,10 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
       <img src="${project.image}" alt="${project.title}">
-      <p>${project.description}</p>
+      <div>
+        <p>${project.description}</p>
+        <p class="year">${project.year}</p>
+      </div>
     `;
     containerElement.appendChild(article);
   });
