@@ -388,3 +388,61 @@ circle.selected {
 }
 
 
+/* === Meta Page Custom Styles === */
+
+/* Scatterplot container */
+#chart {
+  margin-top: 2rem;
+  max-width: 100%;
+}
+
+/* Selection count text */
+#selection-count {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Language breakdown grid (below the chart) */
+#language-breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+  gap: 1em;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+#language-breakdown dt {
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+#language-breakdown dd {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Tooltip for hover over commit */
+#commit-tooltip.tooltip {
+  position: fixed;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 0.8em;
+  font-size: 0.9rem;
+  border-radius: 0.5em;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  z-index: 10;
+}
+
+#commit-tooltip[hidden] {
+  display: none;
+}
+
+/* Selected point style override */
+circle.selected {
+  stroke: #ff6b6b;
+  stroke-width: 2px;
+  fill-opacity: 1;
+}
