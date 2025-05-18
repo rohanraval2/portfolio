@@ -349,4 +349,42 @@ svg:has(path:hover) path:not(:hover) {
   fill: var(--color);
 }
 
+.stats {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em 1em;
+  max-width: 500px;
+  margin: 1em auto;
+}
+
+dl.info {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  padding: 1em;
+  border-radius: 8px;
+  transition: 500ms;
+}
+
+dl.info[hidden] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}
+
 
