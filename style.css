@@ -446,3 +446,88 @@ circle.selected {
   stroke-width: 2px;
   fill-opacity: 1;
 }
+
+/* ==== LAB 8: Timeline Slider & Commit File Units ==== */
+
+#controls {
+  margin-block: 2rem;
+  text-align: center;
+}
+
+#commit-slider {
+  width: 100%;
+  margin-top: 0.5em;
+}
+
+#selectedTime {
+  font-weight: bold;
+  margin-left: 0.5em;
+}
+
+/* Visual unit dots for file lines */
+.files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-block: 2rem;
+  justify-content: center;
+}
+
+.files .line {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ==== Scroll-driven Commit Narratives ==== */
+#scroll-container {
+  position: relative;
+  height: 640px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  background: #fff;
+}
+
+#items-container {
+  position: absolute;
+  width: 100%;
+}
+
+.item {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.item a {
+  color: var(--color-accent, #e04080);
+  text-decoration: underline;
+}
+
+/* ==== Tooltip Styling ==== */
+#commit-tooltip {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  padding: 1em;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  z-index: 999;
+  transition: 0.2s;
+}
+
+#commit-tooltip[hidden] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#commit-tooltip a {
+  font-family: monospace;
+  word-break: break-all;
+}
