@@ -506,7 +506,7 @@ circle.selected {
   position: absolute;
   left: 0;
   width: 100%;
-  background: #f9f9f9;
+  background: canvas;
   padding: 1rem;
   border-bottom: 1px solid #eee;
   font-size: 0.95rem;
