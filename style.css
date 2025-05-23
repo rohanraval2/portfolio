@@ -492,12 +492,20 @@ circle.selected {
   background: #fff;
 }
 
+#spacer {
+  height: 0; /* initially set in JS */
+}
+
 #items-container {
   position: absolute;
+  top: 0;
   width: 100%;
 }
 
 .item {
+  position: absolute;
+  left: 0;
+  width: 100%;
   background: #f9f9f9;
   padding: 1rem;
   border-bottom: 1px solid #eee;

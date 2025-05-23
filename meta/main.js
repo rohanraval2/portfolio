@@ -105,7 +105,7 @@ function renderSelectionCount(selection, commits) {
 
 function updateScatterPlot(data) {
   d3.select('#chart svg').remove();
-  const svg = d3.select('#chart').append('svg').attr('width', 1000).attr('height', 600);
+  const svg = d3.select('#chart').append('svg').attr('width', 1000).attr('height', 600).style('overflow', 'visible').style('border', '2px solid #ccc');
   const margin = { top: 10, right: 10, bottom: 30, left: 40 };
   const usable = { left: margin.left, right: 1000 - margin.right, top: margin.top, bottom: 600 - margin.bottom };
   xScale = d3.scaleTime().domain(d3.extent(data, d => d.datetime)).range([usable.left, usable.right]);
@@ -196,7 +196,21 @@ slider.on('input', function () {
   renderFiles(filtered);
 });
 
-const scrollContainer = d3.select('#scroll-container');
+svg.selectAll('circle')
+  .data(data)
+  .enter()
+  .append('circle')
+  .attr('cx', d => xScale(d.datetime))
+  .attr('cy', d => yScale(d.hourFrac))
+  .attr('r', d => r(d.totalLines))
+  .attr('fill', '#e76f51')
+  .attr('fill-opacity', 0.7)
+  .attr('class', 'commit-dot')
+  .attr('stroke', '#333')        
+  .attr('stroke-width', 1)
+  .attr('stroke', d => d.totalLines > 100 ? 'black' : 'gray');
+Container = d3.select('#scroll-container');
+
 const spacer = d3.select('#spacer').style('height', `${(commits.length - 1) * 80}px`);
 const itemsContainer = d3.select('#items-container');
 
