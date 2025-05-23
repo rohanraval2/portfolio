@@ -351,10 +351,36 @@ svg:has(path:hover) path:not(:hover) {
 
 .stats {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.5em 1em;
-  max-width: 500px;
-  margin: 1em auto;
+  grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+  gap: 2em 3em;
+  justify-items: start;
+  max-width: 60rem;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: canvas;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px oklch(0% 0 0 / 5%);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.stat dt {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: oklch(45% 0.1 240); /* soft gray-blue */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat dd {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+  color: canvastext;
 }
 
 dl.info {
