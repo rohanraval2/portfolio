@@ -1,4 +1,4 @@
-// Fully Merged main.js (Original + Lab 8 Features)
+// Fully Merged main.js (Original + Lab 8 Features + Axes + Gridlines)
 
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
@@ -38,8 +38,7 @@ function processCommits(data) {
 
 function renderCommitInfo(data, commits) {
   const dl = d3.select('#stats').append('dl').attr('class', 'stats');
-  dl.append('div').attr('class', 'stat').html(`
-    <dt>Total <abbr title="Lines of Code">LOC</abbr></dt><dd>${data.length}</dd>`);
+  dl.append('div').attr('class', 'stat').html(`<dt>Total <abbr title="Lines of Code">LOC</abbr></dt><dd>${data.length}</dd>`);
   dl.append('div').attr('class', 'stat').html(`<dt>Commits</dt><dd>${commits.length}</dd>`);
   const numFiles = d3.group(data, d => d.file).size;
   dl.append('div').attr('class', 'stat').html(`<dt>Files</dt><dd>${numFiles}</dd>`);
@@ -105,12 +104,48 @@ function renderSelectionCount(selection, commits) {
 
 function updateScatterPlot(data) {
   d3.select('#chart svg').remove();
-  const svg = d3.select('#chart').append('svg').attr('width', 1000).attr('height', 600).style('overflow', 'visible').style('border', '2px solid #ccc');
+
+  const svg = d3.select('#chart').append('svg')
+    .attr('width', 1000)
+    .attr('height', 600)
+    .style('overflow', 'visible')
+    .style('border', '2px solid #ccc');
+
   const margin = { top: 10, right: 10, bottom: 30, left: 40 };
-  const usable = { left: margin.left, right: 1000 - margin.right, top: margin.top, bottom: 600 - margin.bottom };
+  const usable = { left: margin.left, right: 1000 - margin.right, top: margin.top, bottom: 600 - margin.bottom, width: 1000 - margin.left - margin.right, height: 600 - margin.top - margin.bottom };
+
   xScale = d3.scaleTime().domain(d3.extent(data, d => d.datetime)).range([usable.left, usable.right]);
   yScale = d3.scaleLinear().domain([0, 24]).range([usable.bottom, usable.top]);
+
   const r = d3.scaleSqrt().domain(d3.extent(data, d => d.totalLines)).range([3, 20]);
+
+  // Add Gridlines
+  svg.append('g')
+    .attr('class', 'grid y-grid')
+    .attr('transform', `translate(${usable.left}, 0)`)
+    .call(
+      d3.axisLeft(yScale)
+        .tickSize(-usable.width)
+        .tickFormat('')
+    )
+    .selectAll('line')
+    .attr('stroke', '#ccc')
+    .attr('stroke-opacity', 0.3)
+    .attr('shape-rendering', 'crispEdges');
+
+  // Y Axis
+  svg.append('g')
+    .attr('transform', `translate(${usable.left}, 0)`)
+    .attr('class', 'y-axis')
+    .call(d3.axisLeft(yScale).ticks(8).tickFormat(d => `${d}:00`));
+
+  // X Axis
+  svg.append('g')
+    .attr('transform', `translate(0, ${usable.bottom})`)
+    .attr('class', 'x-axis')
+    .call(d3.axisBottom(xScale));
+
+  // Circles
   svg.selectAll('circle')
     .data(data)
     .enter()
@@ -120,6 +155,8 @@ function updateScatterPlot(data) {
     .attr('r', d => r(d.totalLines))
     .attr('fill', '#e76f51')
     .attr('fill-opacity', 0.7)
+    .attr('stroke', '#333')
+    .attr('stroke-width', 1)
     .attr('class', 'commit-dot')
     .on('mouseenter', (event, d) => {
       updateTooltipContent(d);
@@ -147,7 +184,7 @@ function renderFiles(data) {
     .data(files.sort((a, b) => d3.descending(a.lines.length, b.lines.length)))
     .enter()
     .append('div')
-    .html(d => `<dt><code>${d.name}</code> <small>${d.lines.length} lines</small></dt>`) // Optional styling
+    .html(d => `<dt><code>${d.name}</code> <small>${d.lines.length} lines</small></dt>`)
     .append('dd')
     .selectAll('div')
     .data(d => d.lines)
@@ -196,21 +233,7 @@ slider.on('input', function () {
   renderFiles(filtered);
 });
 
-svg.selectAll('circle')
-  .data(data)
-  .enter()
-  .append('circle')
-  .attr('cx', d => xScale(d.datetime))
-  .attr('cy', d => yScale(d.hourFrac))
-  .attr('r', d => r(d.totalLines))
-  .attr('fill', '#e76f51')
-  .attr('fill-opacity', 0.7)
-  .attr('class', 'commit-dot')
-  .attr('stroke', '#333')        
-  .attr('stroke-width', 1)
-  .attr('stroke', d => d.totalLines > 100 ? 'black' : 'gray');
-Container = d3.select('#scroll-container');
-
+const scrollContainer = d3.select('#scroll-container');
 const spacer = d3.select('#spacer').style('height', `${(commits.length - 1) * 80}px`);
 const itemsContainer = d3.select('#items-container');
 
