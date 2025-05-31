@@ -643,6 +643,10 @@ async function main() {
     commitMaxTime = timeScale.invert(commitProgress);
     filteredCommits = commits;
 
+    renderScatterPlot(data, commits);
+    updateFileDisplay(commits);
+    renderCommitInfo(data, commits);
+
     // Initialize the time display
     onTimeSliderChange();
 
@@ -652,9 +656,6 @@ async function main() {
         slider.addEventListener('input', onTimeSliderChange);
     }
 
-    renderScatterPlot(data, commits);
-    updateFileDisplay(commits);
-    renderCommitInfo(data, commits);
     setupScrollytelling();
     setupFileScrollytelling();
     setupViewToggle();
