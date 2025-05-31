@@ -791,3 +791,207 @@
     font-size: 0.9em;
     color: #666;
   }
+
+  /* --- Modern Meta Page Styles --- */
+
+  body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: #fafbfc;
+    color: #222;
+    margin: 0;
+    padding: 0 0 3rem 0;
+  }
+
+  h1, h2, h3 {
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .tab-container {
+    margin: 2rem 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 0 0 2rem 0;
+  }
+
+  .tab-nav {
+    display: flex;
+    border-bottom: 1px solid #e1e4e8;
+    background: #f6f8fa;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+  }
+
+  .tab-button {
+    flex: 1;
+    padding: 1rem 0;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .tab-button.active {
+    background: #fff;
+    color: #e76f51;
+    border-bottom: 2px solid #e76f51;
+    z-index: 1;
+  }
+
+  .tab-content {
+    display: none;
+    padding: 2rem 1.5rem 0 1.5rem;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .chart-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+  }
+
+  .chart-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .progress-indicator {
+    font-size: 1rem;
+    color: #888;
+    background: #f6f8fa;
+    border-radius: 5px;
+    padding: 0.2em 0.7em;
+  }
+
+  #stats dl.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem 2rem;
+    margin: 0 0 2rem 0;
+    padding: 0;
+  }
+
+  .stat {
+    min-width: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .stat dt {
+    font-size: 1rem;
+    color: #888;
+    font-weight: 500;
+    margin-bottom: 0.2em;
+  }
+
+  .stat dd {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+  }
+
+  #files {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 1rem 2rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f6f8fa;
+    border-radius: 6px;
+  }
+
+  #files > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    margin-bottom: 1rem;
+  }
+
+  #files dt {
+    grid-column: 1;
+    font-weight: 500;
+    color: #333;
+    align-self: start;
+  }
+
+  #files dt code {
+    font-family: monospace;
+    font-size: 0.95rem;
+    background: #e9ecef;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    display: block;
+  }
+
+  #files dt small {
+    display: block;
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-top: 0.25rem;
+    font-weight: normal;
+  }
+
+  #files dd {
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    align-content: start;
+    gap: 0.15em;
+    padding-top: 0.6em;
+    margin-left: 0;
+  }
+
+  .loc {
+    width: 0.5em;
+    aspect-ratio: 1;
+    background: var(--color, steelblue);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Chart and tooltip styles (keep your existing ones for d3) */
+  #chart svg {
+    background: #f6f8fa;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .info.tooltip {
+    position: absolute;
+    z-index: 100;
+    background: #fff;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1em 1.5em;
+    font-size: 1rem;
+    color: #222;
+    pointer-events: none;
+    min-width: 200px;
+  }
+
+  @media (max-width: 800px) {
+    .tab-content {
+      padding: 1rem 0.5rem 0 0.5rem;
+    }
+    .chart-card {
+      padding: 1rem 0.5rem;
+    }
+    #stats dl.stats {
+      gap: 1.5rem 1rem;
+    }
+  }
