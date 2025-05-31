@@ -308,6 +308,7 @@ function renderScatterPlot(data, commits) {
     .attr('r', (d) => rScale(d.totalLines))
     .attr('fill', 'steelblue')
     .style('fill-opacity', 0.7)
+    .style('--r', (d) => rScale(d.totalLines))
     .on('mouseenter', (event, commit) => {
       d3.select(event.currentTarget)
         .style('fill-opacity', 1)
@@ -349,7 +350,7 @@ function updateScatterPlot(data, commits) {
   xScale = xScale.domain(d3.extent(commits, (d) => d.datetime));
 
   const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
-  const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 20]);
+  const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]);
 
   const xAxis = d3.axisBottom(xScale);
 
@@ -616,39 +617,57 @@ function setupViewToggle() {
 }
 
 async function main() {
-  let data = await loadData();
+  const data = await loadData();
   commits = processCommits(data);
-
-  // Initialize time scale and filtered commits
+  
+  // Initialize time scale
   timeScale = d3
-    .scaleTime()
-    .domain([
-      d3.min(commits, (d) => d.datetime),
-      d3.max(commits, (d) => d.datetime),
-    ])
-    .range([0, 100]);
-
+      .scaleTime()
+      .domain([
+          d3.min(commits, (d) => d.datetime),
+          d3.max(commits, (d) => d.datetime),
+      ])
+      .range([0, 100]);
+  
   commitMaxTime = timeScale.invert(commitProgress);
   filteredCommits = commits;
 
-  renderCommitInfo(data, commits);
+  // Initialize the time display
+  onTimeSliderChange();
+
+  // Add event listener to the slider
+  const slider = document.getElementById('commit-progress');
+  if (slider) {
+      slider.addEventListener('input', onTimeSliderChange);
+  }
+
   renderScatterPlot(data, commits);
-  updateFileDisplay(commits);
-
-  // Generate story content for scrollytelling
-  generateStoryContent(commits);
-
-  // Initialize scrollytelling
+  renderCommitInfo(data, commits);
   setupScrollytelling();
-
-  // Generate file story content
-  generateFileStoryContent(commits);
-
-  // Initialize file scrollytelling
   setupFileScrollytelling();
-
-  // Initialize view toggle
   setupViewToggle();
+}
+
+function onTimeSliderChange() {
+    // Update progress and max time
+    commitProgress = document.getElementById('commit-progress').value;
+    commitMaxTime = timeScale.invert(commitProgress);
+    
+    // Update the time display
+    const timeElement = document.getElementById('commit-time');
+    if (timeElement) {
+        timeElement.textContent = commitMaxTime.toLocaleString('en', {
+            dateStyle: 'long',
+            timeStyle: 'short'
+        });
+    }
+    
+    // Update filtered commits
+    filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+    
+    // Update the visualization
+    updateScatterPlot(data, filteredCommits);
+    renderCommitInfo(data, filteredCommits);
 }
 
 main();

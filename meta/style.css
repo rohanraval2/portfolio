@@ -369,11 +369,17 @@
   
   /* Circle and tooltip styles */
   circle {
-    transition: all 200ms ease-out;
+    transition: all 200ms, r calc(var(--r) * 100ms);
     transform-origin: center;
     transform-box: fill-box;
     stroke: rgba(255, 255, 255, 0.2);
     stroke-width: 1px;
+  }
+  
+  @starting-style {
+    circle {
+        r: 0;
+    }
   }
   
   circle:hover {
@@ -759,4 +765,29 @@
     body {
       max-width: 140ch; /* Even wider container for large screens */
     }
+  }
+
+  .time-slider-container {
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  .time-slider-container label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .time-slider-container input[type="range"] {
+    flex: 1;
+  }
+
+  .time-slider-container time {
+    margin-left: auto;
+    font-family: monospace;
+    font-size: 0.9em;
+    color: #666;
   }
