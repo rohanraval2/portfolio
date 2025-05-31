@@ -642,6 +642,7 @@ async function main() {
   }
 
   renderScatterPlot(data, commits);
+  updateFileDisplay(commits);
   renderCommitInfo(data, commits);
   setupScrollytelling();
   setupFileScrollytelling();
@@ -667,6 +668,7 @@ function onTimeSliderChange() {
     
     // Update the visualization
     updateScatterPlot(data, filteredCommits);
+    updateFileDisplay(filteredCommits);
     renderCommitInfo(data, filteredCommits);
 }
 
