@@ -10,6 +10,8 @@ let timeScale;
 let commitMaxTime;
 let filteredCommits;
 
+console.log('main.js loaded');
+
 async function loadData() {
     const data = await d3.csv('loc.csv', (row) => ({
       ...row,
@@ -618,36 +620,44 @@ function setupViewToggle() {
 }
 
 async function main() {
-  data = await loadData();
-  commits = processCommits(data);
-  
-  // Initialize time scale
-  timeScale = d3
-      .scaleTime()
-      .domain([
-          d3.min(commits, (d) => d.datetime),
-          d3.max(commits, (d) => d.datetime),
-      ])
-      .range([0, 100]);
-  
-  commitMaxTime = timeScale.invert(commitProgress);
-  filteredCommits = commits;
+    console.log('main() started');
+    data = await loadData().catch(e => {
+        console.error('Error loading data:', e);
+        return [];
+    });
+    console.log('Loaded data:', data);
+    commits = processCommits(data);
+    console.log('Processed commits:', commits);
+    window.commits = commits;
+    window.data = data;
+    
+    // Initialize time scale
+    timeScale = d3
+        .scaleTime()
+        .domain([
+            d3.min(commits, (d) => d.datetime),
+            d3.max(commits, (d) => d.datetime),
+        ])
+        .range([0, 100]);
+    
+    commitMaxTime = timeScale.invert(commitProgress);
+    filteredCommits = commits;
 
-  // Initialize the time display
-  onTimeSliderChange();
+    // Initialize the time display
+    onTimeSliderChange();
 
-  // Add event listener to the slider
-  const slider = document.getElementById('commit-progress');
-  if (slider) {
-      slider.addEventListener('input', onTimeSliderChange);
-  }
+    // Add event listener to the slider
+    const slider = document.getElementById('commit-progress');
+    if (slider) {
+        slider.addEventListener('input', onTimeSliderChange);
+    }
 
-  renderScatterPlot(data, commits);
-  updateFileDisplay(commits);
-  renderCommitInfo(data, commits);
-  setupScrollytelling();
-  setupFileScrollytelling();
-  setupViewToggle();
+    renderScatterPlot(data, commits);
+    updateFileDisplay(commits);
+    renderCommitInfo(data, commits);
+    setupScrollytelling();
+    setupFileScrollytelling();
+    setupViewToggle();
 }
 
 function onTimeSliderChange() {
