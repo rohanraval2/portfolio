@@ -633,7 +633,7 @@ async function main() {
 
   renderCommitInfo(data, commits);
   renderScatterPlot(data, commits); 
-  renderFiles(commits)
+  renderFiles(commits);
   updateFileDisplay(commits);
 
   // Generate story content for scrollytelling
