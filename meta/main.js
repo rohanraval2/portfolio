@@ -632,8 +632,7 @@ async function main() {
   filteredCommits = commits;
 
   renderCommitInfo(data, commits);
-  renderScatterPlot(data, commits); 
-  renderFiles(commits);
+  renderScatterPlot(data, commits);
   updateFileDisplay(commits);
 
   // Generate story content for scrollytelling
