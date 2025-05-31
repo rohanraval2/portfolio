@@ -4,6 +4,7 @@ import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
 // Global variables for scales and data
 let xScale, yScale;
 let commits;
+let data;
 let commitProgress = 100;
 let timeScale;
 let commitMaxTime;
@@ -617,7 +618,7 @@ function setupViewToggle() {
 }
 
 async function main() {
-  const data = await loadData();
+  data = await loadData();
   commits = processCommits(data);
   
   // Initialize time scale
