@@ -9,32 +9,34 @@
 <body>
   <h1>Codebase Meta Stats</h1>
 
-  <!-- Timeline slider -->
-  <section id="controls">
-    <label for="commit-slider">Timeline:</label>
-    <input type="range" id="commit-slider" min="0" max="100" value="100" />
-    <span id="selectedTime"></span>
-  </section>
+  <div id="stats"></div>
+  <div id="chart"></div>
+  <div id="chart"></div>
+    <div id="stats"></div>
+    <section id="controls">
+      <label for="commit-slider">Timeline:</label>
+      <input type="range" id="commit-slider" min="0" max="100" value="100" />
+      <span id="selectedTime"></span>
+    </section>
+    <p id="selection-count">No commits selected</p>
+    <dl id="language-breakdown" class="stats" hidden></dl>
+    <dl id="commit-tooltip" class="info tooltip" hidden>
+    <dt>Commit</dt><dd><a href="" id="commit-link" target="_blank"></a></dd>
+    <dt>Date</dt><dd id="commit-date"></dd>
+    </dl>
 
-  <!-- Main scrollytelling layout -->
-  <div id="scrollytelling-container">
-    <!-- Left: Chart -->
-    <div id="chart"></div>
+    <section class="files"></section>
 
-    <!-- Right: Commit list -->
     <div id="scroll-container">
-      <div id="spacer"></div>
-      <div id="items-container"></div>
+    <div id="spacer"></div>
+    <div id="items-container"></div>
     </div>
-  </div>
 
-  <!-- Optional: Language breakdown + tooltip (keep for now) -->
-  <dl id="language-breakdown" class="stats" hidden></dl>
+  <dl id="language-breakdown" class="stats"></dl>
   <dl id="commit-tooltip" class="info tooltip" hidden>
     <dt>Commit</dt><dd><a href="" id="commit-link" target="_blank"></a></dd>
     <dt>Date</dt><dd id="commit-date"></dd>
   </dl>
-
   <script type="module" src="/portfolio/global.js"></script>
   <script type="module" src="main.js"></script>
 </body>
