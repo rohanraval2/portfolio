@@ -13,18 +13,17 @@
   <div id="chart"></div>
   <div id="chart"></div>
     <div id="stats"></div>
+    <section id="controls">
+      <label for="commit-slider">Timeline:</label>
+      <input type="range" id="commit-slider" min="0" max="100" value="100" />
+      <span id="selectedTime"></span>
+    </section>
     <p id="selection-count">No commits selected</p>
     <dl id="language-breakdown" class="stats" hidden></dl>
     <dl id="commit-tooltip" class="info tooltip" hidden>
     <dt>Commit</dt><dd><a href="" id="commit-link" target="_blank"></a></dd>
     <dt>Date</dt><dd id="commit-date"></dd>
     </dl>
-
-    <section id="controls">
-    <label for="commit-slider">Timeline:</label>
-    <input type="range" id="commit-slider" min="0" max="100" value="100" />
-    <span id="selectedTime"></span>
-    </section>
 
     <section class="files"></section>
 
